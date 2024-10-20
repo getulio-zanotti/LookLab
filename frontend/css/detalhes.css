@@ -1,0 +1,57 @@
+@import url(../global/style.css);
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+}
+:not(.navigate){
+    animation: fadeIn .6s ease-in-out;
+}
+
+#detalhes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1.5em;
+}
+#pic{
+    width: 60%;
+    border-radius: 1em;
+    box-shadow: var(--shadow);
+}
+
+.infos{
+    background-color: black;
+    color: var(--background);
+    font-size: 2em;
+    width: 60%;
+    text-align: center;
+    border-radius: .5em;
+    padding: .25em;
+}
+
+#ops{
+    color: var(--content);
+}
+#gif{
+    width: 70%;
+}
+.error{
+    text-align: center;
+    text-wrap: wrap;
+    color: var(--content);
+}
+p.error{
+    max-width: 70%;
+}
+span.error{
+    font-weight: 600;
+    color: var(--red);
+}
+a.error{
+    text-decoration: underline var(--red);
+}

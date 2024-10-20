@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LookLab - Adicionar ao Closet</title>
+    <link rel="stylesheet" href="css/newCloth.css">
+</head>
+<body>
+    <h2 id="LookLab">LookLab</h2>
+    <form action="#" enctype="multipart/form-data" id="cloth_form">
+        <label for="image">Foto</label>
+        <input type="file" id="image" name="Image" accept="image/*" required>
+        <label for="brand">Marca</label>
+        <input type="text" class="form_field" id="brand" name="Brand" placeholder="Ex: Hering ou Vans" aria-placeholder="Marca da peça">
+        <label for="size">Tamanho</label>
+        <input type="text" class="form_field" id="size" name="Size" placeholder="Ex: 42 ou M" aria-placeholder="Tamanho da peça. Ex: 42 ou M">
+        <label for="color">Cor</label>
+        <input type="text" class="form_field" id="color" name="Color" placeholder="Ex: Verde ou Off-White" aria-placeholder="Selecionar cor">
+        <button id="save">Salvar</button>
+    </form>
+    <script src="js/newCloth.js"></script>
+</body>
+</html>

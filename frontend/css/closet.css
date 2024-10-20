@@ -1,0 +1,29 @@
+@import url(../global/style.css);
+#banner{
+    background-image:url(../global/images/closet.jpeg) ;
+}
+#closet{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+.card{
+    width: 35vw;
+    height: 35vw;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    object-fit: cover;
+}
+#add_closet .icons{
+    font-size: 40px;
+}
+#add_closet{
+    background-color: var(--gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
