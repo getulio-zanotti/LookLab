@@ -18,12 +18,10 @@ button.onclick = async function () {
 
     if (results.success) {
         localStorage.setItem("userId", results.user.id);
-        localStorage.setItem("userName", results.user.name);
+        localStorage.setItem("userName", results.user.username);
         alert("Login bem-sucedido");
         window.location.href = "LookLab.html";
     } else {
         alert("Falha no login: " + results.message);
     }
 }
-
-
