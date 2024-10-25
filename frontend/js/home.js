@@ -26,7 +26,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // frescuras do Getulio
+const userName = localStorage.getItem('userName');
+
 const appName = document.getElementById('LookLab');
 appName.addEventListener('click', () => {
     window.location.href = "LookLab.html";
 });
+
+document.getElementById('title').innerText = `Olá, ${userName}!`;

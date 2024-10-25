@@ -17,6 +17,8 @@ button.onclick = async function () {
     console.log(results);
 
     if (results.success) {
+        localStorage.setItem("userId", results.user.id);
+        localStorage.setItem("userName", results.user.name);
         alert("Login bem-sucedido");
         window.location.href = "LookLab.html";
     } else {

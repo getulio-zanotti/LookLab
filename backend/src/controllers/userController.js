@@ -68,7 +68,7 @@ async function loginUser(request, response) {
 }
 
 async function getUserData(request, response) {
-    const query = "SELECT * FROM users WHERE id =?";
+    const query = "SELECT * FROM users WHERE id = ?";
     connection.query(query, [userId], (err, results) => {
 
     });
