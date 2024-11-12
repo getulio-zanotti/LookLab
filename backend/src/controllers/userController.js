@@ -1,4 +1,4 @@
-const connection = require('../config/db');
+const connection = require('../config/db.js');
 
 async function storeUser(request, response) {
     const params = [
@@ -68,12 +68,29 @@ async function loginUser(request, response) {
 }
 
 async function getUserData(request, response) {
-    const query = "SELECT * FROM users WHERE id = ?";
-    connection.query(query, [userId], (err, results) => {
+    const params = Array(request.params.id);
 
-    });
-    
+    const query = "SELECT * FROM users WHERE id = ?"
+
+    connection.query(query, params, (err, results) => {
+
+        if (results.length > 0){
+            response.status(200).json({
+                success: true,
+                message: "Success",
+                data: results[0]
+            })
+        } else {
+            response.status(400).json({
+                success: false,
+                message: "Usuário não encontrado",
+                sql: err
+            })
+        }
+    })
 }
+
+
 
 module.exports = {
     storeUser,

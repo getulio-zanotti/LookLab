@@ -2,6 +2,7 @@ const connection = require('../config/db.js');
 const dotenv = require('dotenv').config();
 
 const fs = require('fs');
+const { console } = require('inspector');
 const path = require('path');
 
 const uploadPath = path.join(__dirname, '..', 'uploads');
@@ -58,8 +59,9 @@ async function storeCloth(request, response) {
 }
 
 async function getCloset (request, response) {
-    const query = "SELECT * FROM clothes ORDER BY id DESC"
-    connection.query(query, (err, results) => {
+    const params = Array(request.params.id);
+    const query = "SELECT * FROM clothes WHERE user_id = ? ORDER BY id DESC"
+    connection.query(query, params, (err, results) => {
         if (results){
             response.status(200).json({
                 success: true,
@@ -78,6 +80,7 @@ async function getCloset (request, response) {
 
 async function getCloth(request, response) {
     const params = Array(request.params.id);
+    console.log(params);
 
     const query = "SELECT * FROM clothes WHERE id = ?"
 

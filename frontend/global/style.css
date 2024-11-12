@@ -37,7 +37,7 @@ p{
 }
 a{
     color: var(--content);
-    transition: var(--transitiostartn);
+    transition: var(--transition);
 }
 a:hover{
     color: var(--red);

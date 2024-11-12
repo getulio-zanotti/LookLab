@@ -1,43 +1,51 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const userName = localStorage.getItem('userName');
-    const urlParams = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", function () {
+    const userID = localStorage.getItem("userId");
 
-    const clothId = urlParams.get('id');
-
-    if (clothId) {
-        fetch(`http://localhost:3000/api/get/cloth/${clothId}`)
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                const detalhesMain = document.getElementById('detalhes');
-                detalhesMain.innerHTML =
-                `
-                    <img id="pic" alt="Peça ${clothId}" src="http://localhost:3000/uploads/${data.data.image}">
-                    <h3 class="infos">${data.data.brand}</h3>
-                    <h3 class="infos">${data.data.size}</h3>
-                    <h3 class="infos">${data.data.color}</h3>
-                `
-            } else {
-                const detalhesMain = document.getElementById('detalhes');
-                detalhesMain.innerHTML =
-                `
-                    <h1 id="ops">Fora de moda!?</h1>
-                    <img id="gif" src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOThpb29jZWtwOHN3aGwwamJhdTA4ZDdkdGNwaXRzeXk4YW9saGJ5eiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/26BoDNXeIPeu0Fq6I/giphy.gif">
-                    <p class="error">Não conseguimos encontrar a página que você está procurando. Mas não se preocupe, você ainda pode voltar ao que realmente importa!</p>
-                    <span class="error">Aqui estão algumas opções:</span>
-                    <a class="error" target="_self" href="LookLab.html">Página Inicial</a>
-                    <a class="error" target="_self" href="closet.html">Seu Closet</a>
-                    <a class="error" target="_self" href="http://localhost:3001/chat">Chat</a>
-                `
-            }
-        })
+    if (userID) {
+        fetch(`http://localhost:3000/api/get/user/${userID}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.title = `LookLab - Perfil de ${data.data.username}`;
+                    const profile = document.getElementById("profile")
+                    profile.innerHTML =
+                        `
+                            <h2 class="userInfo" id="username">Perfil de ${data.data.username}</h2>
+                        `
+                    profile.innerHTML =
+                        `
+                            <section class="yourStyle">
+                                <h3>Seu estilo é:</h3>
+                                <p id="userStyle">Esportivo</p>
+                                <h3>Quem tem o mesmo estilo que você?</h3>
+                                <p id="celebStyle">Billie Eilish, Kim Kardashian, Dua Lipa, Bruna Marquezine, Gigi Hadid</p>
+                            </section>
+                            <button id="logoutButton" onclick="logout()">Encerrar sessão</button>
+                            <button id="deleteButton">Excluir perfil</button>
+                        `
+                    function logout() {
+                        localStorage.clear();
+                        window.location.href = "login.html";
+                    }
+                    document.getElementById("logoutButton").onclick = logout;
+                } else {
+                    document.title = `LookLab - Usuário não encontrado`;
+                    const profile = document.getElementById("profile")
+                    profile.innerHTML = 
+                    `
+                        <p>Ops, usuário não encontrado.</p>
+                        <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExZnNybHlmNXhnd3B2cTQ0aHRmZXRqdHFrbHlwc2NwNnYzMGRldW02diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xT8qB8YvduMuybqHSw/giphy.gif">
+                        <p>Tivemos um problema ao localizar seu perfil. Tente novamente!</p>
+                        <a href="LookLab.html" target="_self" aria-label="Inicio" id="Inicio" title="Página inicial">Voltar ao inicio</a>
+                    `
+                }
+            })
     }
 
-    document.title = `LookLab - Perfil de ${userName}`;
 })
 
-// frescuras do Getulio
-const appName = document.getElementById('LookLab');
-appName.addEventListener('click', () => {
-    window.location.href = "LookLab.html";
+const profile = document.getElementById('Profile');
+profile.addEventListener('click', () => {
+    window.location.href = `perfil.html?id=${userId}`;
 });
+profile.style.cursor = "pointer";

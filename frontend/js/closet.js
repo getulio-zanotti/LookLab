@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const response = await fetch('http://localhost:3000/api/get/closet');
+    const userID = localStorage.getItem("userId");
+    const response = await fetch(`http://localhost:3000/api/get/closet/${userID}`);
     const result = await response.json();
     console.log(result);
 

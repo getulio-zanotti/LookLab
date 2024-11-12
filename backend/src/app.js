@@ -17,7 +17,7 @@ app.use(fileUpload());
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
  
-app.use('/api', userRouter);
 app.use('/api', closetRouter);
+app.use('/api', userRouter);
  
 module.exports = app;

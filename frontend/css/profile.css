@@ -1,1 +1,52 @@
 @import url(../global/style.css);
+#profile{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em 5vw;
+    gap: 1em;
+}
+.yourStyle{
+    display: flex;
+    flex-direction: column;
+    background-color: #eee;
+    gap: 1em;
+    padding: 1.5em;
+    border-radius: 1em;
+    box-shadow: var(--shadow);
+}
+#userStyle{
+    font-weight: 600;
+    color: var(--red);
+}
+#logoutButton{
+    background-color: var(--red);
+    box-shadow: var(--shadow);
+    color: var(--background);
+    font-weight: 500;
+    border: none;
+    padding: 1em ;
+    border-radius: 1em;
+    transition: var(--transition);
+}
+#logoutButton:hover{
+    background-color: var(--content);
+    color: var(--background);
+    cursor: pointer;
+    transition: var(--transition);
+}
+#deleteButton{
+    background-color: var(--gray);
+    box-shadow: var(--shadow);
+    color: var(--content);
+    font-weight: 500;
+    border: none;
+    padding: 1em ;
+    border-radius: 1em;
+    transition: var(--transition);
+}
+#deleteButton:hover{
+    background-color: var(--content);
+    color: var(--background);
+    transition: var(--transition) ;
+}

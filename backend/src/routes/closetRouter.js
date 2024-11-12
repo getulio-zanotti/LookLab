@@ -23,9 +23,16 @@ router.post('/store/cloth', storeCloth);
 
 /**
  * @swagger
- * /get/closet:
+ * /get/closet/{id}:
  *   get:
  *     summary: Retorna todas as roupas do closet
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID do usuário
  *     responses:
  *       200:
  *         description: Lista de roupas retornada com sucesso
@@ -36,7 +43,7 @@ router.post('/store/cloth', storeCloth);
  *               items:
  *                 type: object
  */
-router.get('/get/closet', getCloset);
+router.get('/get/closet/:id', getCloset);
 
 /**
  * @swagger

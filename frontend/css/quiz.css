@@ -1,0 +1,61 @@
+@import url(../global/style.css);
+#pageTitle{
+    color: var(--content);
+    text-align: center;
+}
+#quizForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 80vw;
+    padding: 2em 0;
+}
+.pergunta{
+    background-color: #eee;
+    padding: 1.5em;
+    border-radius: 1em;
+    box-shadow: var(--shadow);
+}
+.pergunta p{
+    padding-bottom: .5em;
+    font-weight: 500 ;
+}
+label{
+    padding-left: 1em;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--content);
+    text-wrap: pretty;
+}
+label:hover {
+    text-decoration: underline var(--red);
+    transition: var(--transition);
+    cursor: pointer;
+}
+input[type="radio"]:checked{
+    accent-color: var(--red);
+}
+input[type="radio"]:hover{
+    cursor: pointer;
+}
+#sendButton{
+    background-color: var(--red);
+    box-shadow: var(--shadow);
+    color: var(--background);
+    border: none;
+    padding: 1em ;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: var(--transition);
+}
+#sendButton:hover{
+    background-color: var(--gray);
+    color: var(--red);
+    font-weight: 500;
+    transition: var(--transition) var(--grow);
+}
+#resultado{
+    padding: 1em;
+    color: var(--content);
+    
+}
