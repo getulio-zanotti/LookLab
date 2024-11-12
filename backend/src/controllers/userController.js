@@ -90,10 +90,37 @@ async function getUserData(request, response) {
     })
 }
 
+async function deleteUser(request, response) {
+    const params = request.params.id;
 
+    const query = "DELETE FROM users WHERE id = ?";
+
+    connection.query(query, params, (err, results) => {
+        if (err) {
+            return response.status(500).json({
+                success: false,
+                message: "Erro ao tentar excluir o usuário",
+                error: err
+            });
+        }
+        if (results.affectedRows > 0) {
+            response.status(200).json({
+                success: true,
+                message: "Usuário removido com sucesso",
+                data: results
+            });
+        } else {
+            response.status(404).json({
+                success: false,
+                message: "Usuário não encontrado"
+            });
+        }
+    });
+}
 
 module.exports = {
     storeUser,
     loginUser,
-    getUserData
+    getUserData,
+    deleteUser
 }

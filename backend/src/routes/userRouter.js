@@ -1,6 +1,6 @@
     const { Router } = require('express');
     const router = Router();
-    const { storeUser, loginUser, getUserData, getUsers } = require('../controllers/userController');
+    const { storeUser, loginUser, getUserData, deleteUser } = require('../controllers/userController');
 
 
     /**
@@ -62,6 +62,29 @@
      *               type: object
      */
     router.get('/get/user/:id', getUserData);
+
+    /**
+     * @swagger
+     * /delete/user/{id}:
+     *   delete:
+     *     summary: exclui o registro do usuário pelo ID
+     *     parameters:
+     *       - in: path
+     *         name: id
+     *         required: true
+     *         schema:
+     *           type: string
+     *         description: ID do usuário
+     *     responses:
+     *       200:
+     *         description: usuário removido com sucesso
+     *         content:
+     *           application/json:
+     *             schema:
+     *               type: object
+     */
+
+    router.delete('/delete/user/:id', deleteUser);
 
 
     module.exports = router;

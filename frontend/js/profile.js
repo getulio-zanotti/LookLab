@@ -21,13 +21,33 @@ document.addEventListener("DOMContentLoaded", function () {
                                 <p id="celebStyle">Billie Eilish, Kim Kardashian, Dua Lipa, Bruna Marquezine, Gigi Hadid</p>
                             </section>
                             <button id="logoutButton" onclick="logout()">Encerrar sessão</button>
-                            <button id="deleteButton">Excluir perfil</button>
+                            <button id="deleteButton" onclick="deleteUser()">Excluir perfil</button>
                         `
                     function logout() {
                         localStorage.clear();
                         window.location.href = "login.html";
                     }
                     document.getElementById("logoutButton").onclick = logout;
+
+                    async function deleteUser() {
+                        try {
+                          const response = await fetch(`http://localhost:3000/api/delete/user/${userID}`, {
+                            method: 'DELETE',
+                            headers: {
+                              'Content-Type': 'application/json'
+                            }
+                          });
+                      
+                          if (response.ok) {
+                            console.log('Usuário excluído com sucesso!');
+                          } else {
+                            console.error('Erro ao excluir o usuário:', response.status);
+                          }
+                        } catch (error) {
+                          console.error('Erro de conexão:', error);
+                        }
+                      };
+                      
                 } else {
                     document.title = `LookLab - Usuário não encontrado`;
                     const profile = document.getElementById("profile")
