@@ -24,11 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 // frescuras do Getulio
-const appName = document.getElementById('LookLab');
-appName.addEventListener('click', () => {
-    window.location.href = "LookLab.html";
-});
-
 const add_closet = document.getElementById("add_closet");
 add_closet.style.cursor = "pointer";
 add_closet.addEventListener('click', () => {

@@ -29,7 +29,3 @@ window.addEventListener("blur", () =>{
 window.addEventListener("focus", () =>{
     document.title = docTitle;
 })
-const appName = document.getElementById('LookLab');
-appName.addEventListener('click', () => {
-    window.location.href = "LookLab.html";
-});

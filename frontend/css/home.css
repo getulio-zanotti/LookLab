@@ -13,13 +13,20 @@
 body{
   display: flex;
   flex-direction: column;
-  padding-bottom: calc(1em + 10vh);
 }
 main {
   gap: 2em;
 }
 #banner{
   background-image:url(../global/images/home.jpg) ;
+}
+#homeCards{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
 }
 .home_card{
   display: flex;

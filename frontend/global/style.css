@@ -23,6 +23,7 @@ body{
     flex-direction: column;
     align-items: center;
     scroll-behavior: smooth;
+    padding-bottom: calc(1em + 10vh);
 }
 h1{
     font-size: 36px;

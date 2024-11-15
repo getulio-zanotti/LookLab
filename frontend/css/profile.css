@@ -2,9 +2,11 @@
 #profile{
     display: flex;
     flex-direction: column;
+    padding: 1.5em 5vw;
     gap: 1em;
-    padding: 1em 5vw;
-    gap: 1em;
+}
+#banner{
+    background-image:url(../global/images/profile.jpeg) ;
 }
 .yourStyle{
     display: flex;
