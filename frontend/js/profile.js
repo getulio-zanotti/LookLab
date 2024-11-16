@@ -10,17 +10,29 @@ document.addEventListener("DOMContentLoaded", function () {
                 const profile = document.getElementById("profile");
                 const title = document.getElementById("title");
                 title.innerHTML = `Perfil de ${data.data.username}`;
-                profile.innerHTML =
+                if (!data.data.style){
+                  profile.innerHTML =
                     `
                       <section class="yourStyle">
-                          <h3>Seu estilo é:</h3>
-                          <p id="userStyle">Esportivo</p>
-                          <h3>Quem tem o mesmo estilo que você?</h3>
-                          <p id="celebStyle">Billie Eilish, Kim Kardashian, Dua Lipa, Bruna Marquezine, Gigi Hadid</p>
+                        <h3>Seu estilo não foi definido</h3>
+                        <a href="quiz.html" target="_self" aria-label="Quiz" id="Quiz" title="Quiz">Descubra seu estilo!</a>
                       </section>
                       <button id="logoutButton" onclick="logout()">Encerrar sessão</button>
                       <button id="deleteButton" onclick="deleteUser()">Excluir perfil</button>
                     `
+                } else {
+                  profile.innerHTML =
+                    `
+                      <section class="yourStyle">
+                          <h3>Seu estilo é:</h3>
+                          <p id="userStyle">${data.data.style}</p>
+                          <h3>Quem tem o mesmo estilo que você?</h3>
+                          <p id="celebStyle">${data.data.celebrities}</p>
+                      </section>
+                      <button id="logoutButton" onclick="logout()">Encerrar sessão</button>
+                      <button id="deleteButton" onclick="deleteUser()">Excluir perfil</button>
+                    `
+                }
                 function logout() {
                     localStorage.clear();
                     window.location.href = "login.html";

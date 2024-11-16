@@ -70,7 +70,7 @@ async function loginUser(request, response) {
 async function getUserData(request, response) {
     const params = Array(request.params.id);
 
-    const query = "SELECT * FROM users WHERE id = ?"
+    const query = "SELECT * FROM users INNER JOIN styles ON users.style = styles.style WHERE users.id = ?"
 
     connection.query(query, params, (err, results) => {
 
