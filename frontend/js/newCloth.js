@@ -13,7 +13,7 @@ button.onclick = async function() {
     let content = await response.json();
 
     if (content.success) {
-        window.location.href = "/closet.html";
+        window.location.href = "closet.html";
     } else {
         alert("Error")
         console.log(content.sql);

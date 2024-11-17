@@ -34,6 +34,7 @@ main {
   align-items: center;
   justify-content: space-between;
   background-color: var(--gray);
+  box-shadow: var(--shadow);
   width: 80vw;
   height: 80vw;
   border-radius: 2em;
@@ -43,4 +44,16 @@ main {
 .card{
   width: 3.5em;
   padding: .4em;
+}
+#preview{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: .5em;
+  justify-content: center;
+  align-items: center;
+}
+.previewItem{
+  width: 30%;
+  border-radius: 10%;
 }

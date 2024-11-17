@@ -1,7 +1,6 @@
 @import url(../global/style.css);
-#pageTitle{
-    color: var(--content);
-    text-align: center;
+#banner{
+    background-image:url(../global/images/quiz.jpeg) ;
 }
 #quizForm{
     display: flex;
@@ -21,7 +20,6 @@
     font-weight: 500 ;
 }
 label{
-    padding-left: 1em;
     font-size: 14px;
     font-weight: 400;
     color: var(--content);
@@ -57,5 +55,4 @@ input[type="radio"]:hover{
 #resultado{
     padding: 1em;
     color: var(--content);
-    
 }

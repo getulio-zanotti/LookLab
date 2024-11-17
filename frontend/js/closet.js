@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const userID = localStorage.getItem("userId");
+    if (!localStorage.getItem("userName")){
+        document.title = `LookLab`;
+    }else{
+        document.title = `LookLab - Closet de ${localStorage.getItem("userName")}`;
+    }
     const response = await fetch(`http://localhost:3000/api/get/closet/${userID}`);
     const result = await response.json();
     console.log(result);

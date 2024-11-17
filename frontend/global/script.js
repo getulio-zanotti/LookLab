@@ -4,13 +4,16 @@ const userId = localStorage.getItem('userId');
 const appName = document.getElementById('LookLab');
 const body = document.getElementById('body');
 appName.addEventListener('click', () => {
-    window.location.href = "LookLab.html";
+    window.location.href = "inicio.html";
 });
 
+if (!document.title || document.title === 'Document') {
+    document.title = "LookLab";
+}
 
 body.insertAdjacentHTML('beforeend', `
     <nav id="navigate">
-        <a href="LookLab.html" class="nav-icon" target="_self" aria-label="Inicio" id="Inicio" title="Inicio">
+        <a href="inicio.html" class="nav-icon" target="_self" aria-label="Inicio" id="Inicio" title="Inicio">
             home
         </a>
         <a href="closet.html" class="nav-icon" target="_self" aria-label="Closet" id="Closet" title="Closet">
@@ -25,3 +28,8 @@ body.insertAdjacentHTML('beforeend', `
     </nav>
 `);
 
+// let url = window.location.href;
+// if (url.includes('.html') && !url.includes('?')) {
+//     let novaUrl = url.replace(/\.html$/, "");
+//     history.replaceState(null, '', novaUrl);
+// }

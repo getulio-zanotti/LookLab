@@ -1,4 +1,4 @@
-function calcularEstilo() {
+async function calcularEstilo() {
     // Coleta as respostas
     const respostas = {
         pergunta1: document.querySelector('input[name="pergunta1"]:checked'),
@@ -18,7 +18,7 @@ function calcularEstilo() {
     }
 
     // Contabiliza as respostas para cada estilo
-    let contagemEstilos = {
+    let countStyle = {
         casual: 0,
         elegante: 0,
         classico: 0,
@@ -31,12 +31,30 @@ function calcularEstilo() {
     // Para cada resposta, incrementa a contagem do estilo correspondente
     for (let pergunta in respostas) {
         const resposta = respostas[pergunta].value;
-        contagemEstilos[resposta]++;
+        countStyle[resposta]++;
     }
 
     // Determina o estilo predominante
-    let estiloPredominante = Object.keys(contagemEstilos).reduce((a, b) => contagemEstilos[a] > contagemEstilos[b] ? a : b);
+    let style = Object.keys(countStyle).reduce((a, b) => countStyle[a] > countStyle[b] ? a : b);
 
     // Exibe o resultado
-    document.getElementById("resultado").textContent = `Seu estilo predominante é: ${estiloPredominante.charAt(0).toUpperCase() + estiloPredominante.slice(1)}`;
+    document.getElementById("resultado").textContent = `Seu estilo predominante é: ${style.charAt(0).toUpperCase() + style.slice(1)}`;
+
+    // Atualiza o estilo do usuário via API
+    try {
+        const response = await fetch(`http://localhost:3000/api/update/user/style/${localStorage.getItem("userId")}`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ style }) // Enviando como objeto
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro ao atualizar estilo: ${response.statusText}`);
+        }
+
+        alert("Estilo atualizado com sucesso!");
+    } catch (error) {
+        console.error("Erro na atualização do estilo:", error);
+        alert("Não foi possível atualizar o estilo. Tente novamente mais tarde.");
+    }
 }

@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Descubra seu Estilo Pessoal</title>
+    <meta name="description" content="Pronto para criar looks incríveis, mas não sabe por onde começar? O LookLab te ajuda a responder suas perguntas na area da moda usando IA, e te ajuda a encontrar seu estilo.">
+    <title>LookLab - Descubra seu Estilo</title>
     <link rel="stylesheet" href="css/quiz.css">
 </head>
-<body>
+<body id="body">
     <h2 id="LookLab">LookLab</h2>
-
-    <h1 id="pageTitle">Descubra seu Estilo</h1>
+    <section id="banner">
+        <h1 id="pageTitle">Descubra seu Estilo</h1>
+    </section>
     <form id="quizForm" role="form">
 
         <div class="pergunta" role="question">
@@ -81,8 +83,9 @@
         <button id="sendButton" type="button" onclick="calcularEstilo()">Enviar</button>
     </form>
 
-    <h2 id="resultado">ahyviyc</h2>
+    <h2 id="resultado"></h2>
 
+    <script src="global/script.js"></script>
     <script src="js/quiz.js"></script>
 </body>
 </html>

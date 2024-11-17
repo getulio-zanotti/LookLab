@@ -118,9 +118,34 @@ async function deleteUser(request, response) {
     });
 }
 
+async function setUserStyle(request, response) {
+    const { id } = request.params;
+    const { style } = request.body;
+
+    const query = "UPDATE users SET style = ? WHERE id = ?";
+
+    connection.query(query, [style, id], (err, results) => {
+        if (err) {
+            return response.status(400).json({
+                success: false,
+                message: "Erro na atualização",
+                error: err.message,
+            });
+        }
+
+        response.status(200).json({
+            success: true,
+            message: "Atualização bem-sucedida",
+            data: results,
+        });
+    });
+}
+
+
 module.exports = {
     storeUser,
     loginUser,
     getUserData,
-    deleteUser
+    deleteUser,
+    setUserStyle
 }
